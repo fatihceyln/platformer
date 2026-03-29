@@ -1,11 +1,11 @@
 extends CharacterBody2D
 
-@export var SPEED = 130.0
-@export var JUMP_VELOCITY = -300.0
+@export var SPEED: float = 130.0
+@export var JUMP_VELOCITY: float = -300.0
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _physics_process(delta: float) -> void:
-	var direction := Input.get_axis("move_left", "move_right")
+	var direction: float = Input.get_axis("move_left", "move_right")
 	handle_gravity(delta)
 	handle_jump()
 	flip_sprite(direction)
@@ -20,7 +20,7 @@ func handle_jump() -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-func flip_sprite(direction: float):
+func flip_sprite(direction: float) -> void:
 	if direction > 0:
 		animated_sprite.flip_h = false
 	elif direction < 0:
