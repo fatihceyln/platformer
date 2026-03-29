@@ -1,4 +1,4 @@
-extends Area2D
+class_name Coin extends Area2D
 
 @onready var game_manager: GameManager = %GameManager
 @onready var animation_player: AnimationPlayer = $AnimationPlayer

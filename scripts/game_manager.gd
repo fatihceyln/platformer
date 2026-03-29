@@ -1,5 +1,4 @@
-class_name GameManager
-extends Node
+class_name GameManager extends Node
 
 var score: int = 0
 @onready var score_label: Label = $ScoreLabel

@@ -1,4 +1,4 @@
-extends Node2D
+class_name slime extends Node2D
 
 const SPEED: float = 60
 var direction: int = 1
