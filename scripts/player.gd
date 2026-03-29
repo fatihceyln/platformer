@@ -1,9 +1,7 @@
 extends CharacterBody2D
 
-
-const SPEED = 130.0
-const JUMP_VELOCITY = -300.0
-
+@export var SPEED = 130.0
+@export var JUMP_VELOCITY = -300.0
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _physics_process(delta: float) -> void:
@@ -14,21 +12,21 @@ func _physics_process(delta: float) -> void:
 	play_animations(direction)
 	move(direction)
 
-func add_gravity(delta: float):
+func add_gravity(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-func handle_jump():
+func handle_jump() -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
 func flip_sprite(direction: float):
 	if direction > 0:
-			animated_sprite.flip_h = false
+		animated_sprite.flip_h = false
 	elif direction < 0:
 		animated_sprite.flip_h = true
 
-func play_animations(direction: float):
+func play_animations(direction: float) -> void:
 	if is_on_floor():
 		if direction == 0:
 			animated_sprite.play("idle")
@@ -37,13 +35,13 @@ func play_animations(direction: float):
 	else:
 		animated_sprite.play("jump")
 
-func move(direction: float):
+func move(direction: float) -> void:
 	if direction:
 		velocity.x = direction * SPEED
 	else:
-		# Klavye bırakıldığında yatay hızı sıfıra düşürür. Her seferde SPEED değeri kadar düşürür.
-		# move_toward(100, 0, 30) → 70 (30 azalır)
-		# move_toward(20, 0, 30) → 0 (20’yi aşıp negatife gitmez)
+		# When input stops, ease horizontal velocity toward zero by up to SPEED per physics step.
+		# move_toward(100, 0, 30) → 70 (drops by 30)
+		# move_toward(20, 0, 30) → 0 (does not overshoot past zero)
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
