@@ -6,13 +6,13 @@ extends CharacterBody2D
 
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("move_left", "move_right")
-	add_gravity(delta)
+	handle_gravity(delta)
 	handle_jump()
 	flip_sprite(direction)
 	play_animations(direction)
 	move(direction)
 
-func add_gravity(delta: float) -> void:
+func handle_gravity(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
