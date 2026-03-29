@@ -172,6 +172,8 @@ texture = ExtResource("2_e2o6t")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_feb5d")
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ryrav"]
+
 [sub_resource type="Animation" id="Animation_feb5d"]
 length = 0.001
 tracks/0/type = "value"
@@ -210,8 +212,6 @@ _data = {
 &"move": SubResource("Animation_fc0e3")
 }
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ryrav"]
-
 [node name="Game" type="Node2D" unique_id=1299973182]
 
 [node name="TileMap" type="TileMap" parent="." unique_id=719780015]
@@ -228,16 +228,6 @@ zoom = Vector2(4, 4)
 limit_bottom = 90
 limit_smoothed = true
 position_smoothing_enabled = true
-
-[node name="platform" parent="." unique_id=29414217 instance=ExtResource("3_feb5d")]
-position = Vector2(112, -14)
-
-[node name="moving platform" parent="." unique_id=1195936984 instance=ExtResource("3_feb5d")]
-position = Vector2(451, 21)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="moving platform" unique_id=397582730]
-libraries/ = SubResource("AnimationLibrary_7jktm")
-autoplay = &"move"
 
 [node name="coins" type="Node2D" parent="." unique_id=608606781]
 
@@ -259,3 +249,15 @@ position = Vector2(112, 104)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone" unique_id=2039865310]
 position = Vector2(0, 14)
 shape = SubResource("WorldBoundaryShape2D_ryrav")
+
+[node name="platforms" type="Node" parent="." unique_id=44465495]
+
+[node name="platform" parent="platforms" unique_id=29414217 instance=ExtResource("3_feb5d")]
+position = Vector2(112, -14)
+
+[node name="moving platform" parent="platforms" unique_id=1195936984 instance=ExtResource("3_feb5d")]
+position = Vector2(451, 21)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/moving platform" unique_id=397582730]
+libraries/ = SubResource("AnimationLibrary_7jktm")
+autoplay = &"move"
