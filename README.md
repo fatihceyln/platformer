@@ -1,4 +1,4 @@
-<video src="gameplay.mov" controls muted playsinline width="100%"></video>
+<video src="https://raw.githubusercontent.com/fatihceyln/platformer/main/gameplay.mp4" controls muted playsinline width="100%"></video>
 
 # Notes
 
