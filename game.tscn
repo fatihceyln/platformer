@@ -234,6 +234,33 @@ text = "You collected X coins."
 horizontal_alignment = 1
 autowrap_mode = 2
 
+[node name="Overlay" type="CanvasLayer" parent="GameManager" unique_id=1743987523]
+layer = 10
+
+[node name="Dim" type="ColorRect" parent="GameManager/Overlay" unique_id=1274765313]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="GameOverLabel" type="Label" parent="GameManager/Overlay" unique_id=517399201]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("9_vef74")
+theme_override_font_sizes/font_size = 24
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="TileMap" type="TileMap" parent="." unique_id=719780015]
 tile_set = SubResource("TileSet_fc0e3")
 format = 2
