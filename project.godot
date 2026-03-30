@@ -34,6 +34,10 @@ gdscript/warnings/unsafe_call_argument=2
 gdscript/warnings/return_value_discarded=1
 gdscript/warnings/missing_await=1
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gut/plugin.cfg")
+
 [input]
 
 jump={
