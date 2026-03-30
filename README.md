@@ -1,6 +1,4 @@
-[![Gameplay — click to watch](docs/gameplay-poster.jpg)](https://github.com/fatihceyln/platformer/blob/main/gameplay.mp4)
-
-*GitHub does not show an embedded video player in README files. Click the image or open [gameplay.mp4](gameplay.mp4) to watch in the browser.*
+<video src="https://github.com/user-attachments/assets/fe97f4c3-23a6-48ed-85c9-d87536205c38" controls playsinline></video>
 
 # Notes
 
