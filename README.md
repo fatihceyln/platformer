@@ -1,4 +1,6 @@
-<video src="https://raw.githubusercontent.com/fatihceyln/platformer/main/gameplay.mp4" controls muted playsinline width="100%"></video>
+[![Gameplay — click to watch](docs/gameplay-poster.jpg)](https://github.com/fatihceyln/platformer/blob/main/gameplay.mp4)
+
+*GitHub does not show an embedded video player in README files. Click the image or open [gameplay.mp4](gameplay.mp4) to watch in the browser.*
 
 # Notes
 
