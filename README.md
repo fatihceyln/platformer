@@ -1,3 +1,5 @@
+<video src="gameplay.mov" controls muted playsinline width="100%"></video>
+
 # Notes
 
 ## Sprites & world building
@@ -25,7 +27,7 @@
 ## UI & pixel art
 
 - **Font size** — For pixel-art games, prefer font sizes that are multiples of **8** so text stays crisp; arbitrary sizes often look blurry or uneven.
-
+ 
 ## Nodes & scenes
 
 - `Node` — The simplest node type; it has no 2D transform (no position, scale, or size in the 2D sense). (`Node2D` adds position, rotation, and scale.)
