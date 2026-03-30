@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cir2rgpnc3tr8"]
+
+[ext_resource type="Script" uid="uid://cty816nvm365i" path="res://scripts/game_manager.gd" id="1_38wyu"]
+[ext_resource type="PackedScene" uid="uid://br2i1akcrs6oy" path="res://scenes/coin.tscn" id="2_0iej5"]
+
+[node name="GutCoinPickupLevel" type="Node2D" unique_id=1032958808]
+
+[node name="GameManager" type="Node" parent="." unique_id=442946416]
+unique_name_in_owner = true
+script = ExtResource("1_38wyu")
+
+[node name="ScoreLabel" type="Label" parent="GameManager" unique_id=1217667959]
+
+[node name="TestCoin" parent="." unique_id=122281977 instance=ExtResource("2_0iej5")]
