@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://d07lo2blr3ptm"]
+
+[ext_resource type="Shader" uid="uid://det2lqllbx0qy" path="res://shaders/circle_transition_shader.gdshader" id="1_xyjwq"]
+
+[resource]
+shader = ExtResource("1_xyjwq")
+shader_parameter/progress = 0.0
+shader_parameter/feather = 0.0
