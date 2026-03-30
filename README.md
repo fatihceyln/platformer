@@ -43,6 +43,31 @@
 - `@export var some_node: Node` — Exposes a slot in the inspector so you can assign a node from the editor, similar in idea to `@IBInspectable` in UIKit.
 - `class_name` — Gives a script a global class name you can use throughout the project.
 
+## GDScript warnings (project settings)
+
+These options live in **`project.godot`** under **`[debug]`** (editor path: **Project → Project Settings → Debug → GDScript**). They control how the analyzer treats potential mistakes. Severity is stored as a number: **`0`** = ignore, **`1`** = warn, **`2`** = error.
+
+### Why enable stricter settings?
+
+The goal is **safer, more maintainable scripts**: catch typing and API misuse **before** runtime, keep types **explicit** where it matters, and avoid “silent” bugs from discarded return values or forgotten `await`. It is similar in spirit to stricter checks in languages like Swift—GDScript is still dynamic, but the editor can enforce a **disciplined** style across the whole project.
+
+### This project’s values
+
+| Setting | Level | What it does |
+|--------|--------|----------------|
+| `untyped_declaration` | **Error** | Disallows untyped `var` / parameters where the project expects explicit types (or consistent typing rules). |
+| `inferred_declaration` | **Error** | Flags declarations that rely only on inference when the project wants explicit annotations for clarity and tooling. |
+| `unsafe_property_access` | **Error** | Warns when you read/write a property on a value the type system cannot prove safe (e.g. `Variant`-like paths). |
+| `unsafe_method_access` | **Error** | Same idea for method calls on insufficiently known types. |
+| `unsafe_cast` | **Error** | Flags casts that may fail at runtime if the value is not the assumed type. |
+| `unsafe_call_argument` | **Error** | Flags passing values into calls where the argument type does not match safely. |
+| `return_value_discarded` | **Warn** | If a function returns a meaningful value (e.g. error codes, nodes), ignoring it is flagged—helps avoid ignored errors. |
+| `missing_await` | **Warn** | If you call something that should be `await`ed (async flow) without `await`, you get a reminder. |
+
+**Summary:** The first six are set to **error** so the codebase stays **typed and safe** at analysis time; the last two stay **warnings** so you get nudges without necessarily blocking every build on style-heavy cases.
+
+**Note:** Preferences under **Editor → Editor Settings → Text Editor → GDScript** (theme, completion, etc.) are **user-local** and are **not** stored in this repo—only **Project Settings** entries in `project.godot` are shared with the project.
+
 ## Architecture
 
 - **Call down, signal up** — Prefer calling methods on children from parents, and notifying parents (or the rest of the tree) with **signals** going upward. For **sibling** communication, still use signals and let a **parent** coordinate.
