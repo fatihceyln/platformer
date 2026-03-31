@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cmx8nf3q2w1vp"]
+
+[ext_resource type="Material" uid="uid://r8mvux4lwo05" path="res://materials/confetti_particle_material.tres" id="1_process_mat"]
+[ext_resource type="Texture2D" uid="uid://b51qmbqix60wv" path="res://assets/confetti.jpeg" id="2_confetti_tex"]
+
+[node name="ConfettiBurst" type="GPUParticles2D" unique_id=852527661]
+z_index = 5
+amount = 104
+texture = ExtResource("2_confetti_tex")
+lifetime = 4.35
+one_shot = true
+explosiveness = 0.97
+randomness = 0.45
+process_material = ExtResource("1_process_mat")

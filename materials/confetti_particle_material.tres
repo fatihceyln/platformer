@@ -1,0 +1,26 @@
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://r8mvux4lwo05"]
+
+[sub_resource type="Curve" id="Curve_7dsx8"]
+_data = [Vector2(0, 0.08), 0.0, 8.0, 0, 0, Vector2(0.12, 1.08), 0.0, 0.0, 0, 0, Vector2(0.45, 1.05), 0.0, 0.0, 0, 0, Vector2(1, 0.88), -0.35, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_ut1ng"]
+curve = SubResource("Curve_7dsx8")
+
+[resource]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 30.0
+initial_velocity_min = 153.75
+initial_velocity_max = 293.75
+angular_velocity_min = -4.0
+angular_velocity_max = 4.0
+gravity = Vector3(0, 350, 0)
+damping_min = 0.25
+damping_max = 0.85
+scale_min = 0.35
+scale_max = 0.85
+scale_curve = SubResource("CurveTexture_ut1ng")
+color = Color(1, 0.55341333, 0.7439273, 1)
+hue_variation_min = -0.41000003
+hue_variation_max = 0.32999998
