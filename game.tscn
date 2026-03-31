@@ -420,10 +420,11 @@ position = Vector2(873, -56)
 [node name="coin8" parent="coins" unique_id=717083101 instance=ExtResource("4_fc0e3")]
 position = Vector2(680, -135)
 
-[node name="killzone" parent="." unique_id=632691464 instance=ExtResource("5_7jktm")]
+[node name="Killzone" parent="." unique_id=632691464 instance=ExtResource("5_7jktm")]
+unique_name_in_owner = true
 position = Vector2(112, 104)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone" unique_id=2039865310]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=2039865310]
 position = Vector2(0, 14)
 shape = SubResource("WorldBoundaryShape2D_ryrav")
 

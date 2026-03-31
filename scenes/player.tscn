@@ -182,6 +182,7 @@ sprite_frames = SubResource("SpriteFrames_tuyoq")
 animation = &"jump"
 autoplay = "idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=662217091]
+[node name="PlayerHitBox" type="CollisionShape2D" parent="." unique_id=662217091]
+unique_name_in_owner = true
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_fjrip")

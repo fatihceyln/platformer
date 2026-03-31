@@ -5,4 +5,3 @@
 [resource]
 shader = ExtResource("1_xyjwq")
 shader_parameter/progress = 0.0
-shader_parameter/feather = 0.0
