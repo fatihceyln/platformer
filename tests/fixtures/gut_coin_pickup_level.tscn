@@ -11,4 +11,6 @@ script = ExtResource("1_38wyu")
 
 [node name="ScoreLabel" type="Label" parent="GameManager" unique_id=1217667959]
 
+[node name="GameOverReveal" type="AnimationPlayer" parent="GameManager" unique_id=1217667960]
+
 [node name="TestCoin" parent="." unique_id=122281977 instance=ExtResource("2_0iej5")]

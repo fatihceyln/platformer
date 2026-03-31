@@ -6,6 +6,9 @@ func make_sut() -> GameManager:
 	var lbl: Label = Label.new()
 	lbl.name = "ScoreLabel"
 	gm.add_child(lbl)
+	var game_over: AnimationPlayer = AnimationPlayer.new()
+	game_over.name = "GameOverReveal"
+	gm.add_child(game_over)
 	add_child_autofree(gm)
 	return gm
 
