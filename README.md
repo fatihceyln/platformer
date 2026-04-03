@@ -1,7 +1,7 @@
 <video src="https://github.com/user-attachments/assets/be021216-c56b-493e-b3a6-ee3a3b64ef9b" controls playsinline></video>
 
 # Notes
-In Godot, everything is made up of Nodes.
+In Godot, a game is a tree of nodes that you group together into scenes. You can then wire these nodes so they can communicate using signals.
 
 ---
 
