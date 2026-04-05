@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://cnn4am0k2mqp8"]
+
+[ext_resource type="Texture2D" uid="uid://dbxb602buq7wu" path="res://assets/sprites/fruit.png" id="1_dajs1"]
+[ext_resource type="Script" uid="uid://bdjy46yc058s3" path="res://scripts/fruit.gd" id="1_yvtr8"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lfepc"]
+friction = 0.4
+bounce = 0.55
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lfepc"]
+radius = 3.3
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yvtr8"]
+radius = 3.3
+
+[node name="Fruit" type="RigidBody2D" unique_id=1688830337]
+collision_layer = 8
+physics_material_override = SubResource("PhysicsMaterial_lfepc")
+linear_velocity = Vector2(200, -150)
+angular_velocity = 6.1086526
+script = ExtResource("1_yvtr8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=486550847]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_dajs1")
+region_enabled = true
+region_rect = Rect2(2, 18, 11, 13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1027305681]
+shape = SubResource("CircleShape2D_lfepc")
+
+[node name="HitArea" type="Area2D" parent="." unique_id=1965172307]
+collision_layer = 2
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea" unique_id=1182739057]
+shape = SubResource("CircleShape2D_yvtr8")
+debug_color = Color(0.69618887, 0.43968594, 0.60703605, 0.41960785)
+
+[node name="Timer" type="Timer" parent="." unique_id=1323910091]
+wait_time = 1.5
+one_shot = true
+autostart = true
+
+[connection signal="area_entered" from="HitArea" to="." method="_on_hit_area_area_entered"]
+[connection signal="body_entered" from="HitArea" to="." method="_on_hit_area_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="queue_free"]

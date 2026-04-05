@@ -1,4 +1,4 @@
-class_name slime extends Node2D
+class_name Slime extends Node2D
 
 const SPEED: float = 60
 var direction: int = 1
@@ -17,3 +17,9 @@ func _process(delta: float) -> void:
 		animated_sprite.flip_h = false
 		
 	position.x += direction * SPEED * delta
+
+func take_hit() -> void:
+	animated_sprite.play("hit")
+	set_process(false)
+	await get_tree().create_timer(0.1).timeout
+	queue_free()

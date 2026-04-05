@@ -4,25 +4,40 @@
 [ext_resource type="Texture2D" uid="uid://bmn317iwnsb6x" path="res://assets/sprites/slime_green.png" id="1_p2gj0"]
 [ext_resource type="PackedScene" uid="uid://c88udyeyn4dcf" path="res://scenes/killzone.tscn" id="2_n6pvg"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pjw23"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_gstla"]
+atlas = ExtResource("1_p2gj0")
+region = Rect2(48, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6pvg"]
 atlas = ExtResource("1_p2gj0")
 region = Rect2(0, 24, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2npkn"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjw23"]
 atlas = ExtResource("1_p2gj0")
 region = Rect2(24, 24, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fd6lc"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2npkn"]
 atlas = ExtResource("1_p2gj0")
 region = Rect2(48, 24, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gstla"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_fd6lc"]
 atlas = ExtResource("1_p2gj0")
 region = Rect2(72, 24, 24, 24)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_v5wyi"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_pjw23"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gstla")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n6pvg")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pjw23")
 }, {
@@ -31,9 +46,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fd6lc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gstla")
 }],
 "loop": true,
 "name": &"idle",
@@ -48,12 +60,12 @@ script = ExtResource("1_n6pvg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1914379161]
 position = Vector2(0, -12)
-sprite_frames = SubResource("SpriteFrames_v5wyi")
-animation = &"idle"
+sprite_frames = SubResource("SpriteFrames_pjw23")
+animation = &"hit"
 autoplay = "idle"
-frame_progress = 0.46411076
 
 [node name="killzone" parent="." unique_id=632691464 instance=ExtResource("2_n6pvg")]
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone" unique_id=1757598339]
 position = Vector2(0, -6.5)

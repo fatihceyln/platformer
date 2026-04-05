@@ -78,5 +78,5 @@ func test_handle_jump_applies_velocity_when_on_floor_and_jump_pressed() -> void:
 	sender.set_auto_flush_input(true)
 	sender.action_down(&"jump")
 	await wait_physics_frames(1)
-	assert_eq(player.velocity.y, player.JUMP_VELOCITY)
+	assert_eq(player.velocity.y, player.jump_velocity)
 	sender.release_all()
