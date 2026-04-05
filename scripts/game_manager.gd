@@ -6,7 +6,6 @@ var score: int = 0
 var _total_coins: int = 0
 @onready var score_label: Label = $ScoreLabel
 @onready var game_over_reveal: AnimationPlayer = $GameOverReveal
-var foo: AnimationPlayer = $GameOverReveal
 
 func _ready() -> void:
 	Events.player_died.connect(_on_player_died)
