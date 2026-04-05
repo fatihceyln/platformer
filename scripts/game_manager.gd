@@ -1,11 +1,11 @@
 class_name GameManager extends Node
 
 const CONFETTI_BURST: PackedScene = preload("res://scenes/confetti_burst.tscn")
+const GAME_OVER_HUD: PackedScene = preload("res://scenes/game_over_hud.tscn")
 
 var score: int = 0
 var _total_coins: int = 0
 @onready var score_label: Label = $ScoreLabel
-@onready var game_over_reveal: AnimationPlayer = $GameOverReveal
 
 func _ready() -> void:
 	Events.player_died.connect(_on_player_died)
@@ -27,28 +27,11 @@ func add_point() -> void:
 func _on_player_died() -> void:
 	score = 0
 	Engine.time_scale = 0.5
-	_start_game_over_timer()
-	game_over_reveal.speed_scale = 1.0 / Engine.time_scale
-	game_over_reveal.play("game_over_reveal")
-		
-
-func _start_game_over_timer() -> void:
-	var timer: Timer = Timer.new()
-	timer.wait_time = 0.7
-	timer.ignore_time_scale = true
-	timer.one_shot = true
-	timer.autostart = true
-	timer.timeout.connect(_game_over_timer_timed_out.bind(timer))
-	add_child(timer)
-
-func _game_over_timer_timed_out(timer: Timer) -> void: 
-	# We do not need to call `queue_free()` on timer to remove from the hierarchy.
-	# Because we are reloading the whole scene.
-	# But I will leave it for demoing purposes.
-	timer.queue_free() 
-	Engine.time_scale = 1.0
-	get_tree().reload_current_scene()
-
+	
+	var game_over_hud: GameOverHUD = GAME_OVER_HUD.instantiate()
+	add_child(game_over_hud)
+	game_over_hud.finished.connect(_on_game_over_hud_finished)
+	game_over_hud.start_animation()
 
 func _spawn_confetti_at_player() -> void:
 	var world: Node = get_parent()
@@ -61,3 +44,7 @@ func _spawn_confetti_at_player() -> void:
 	burst.finished.connect(burst.queue_free)
 	burst.emitting = true
 	burst.restart()
+
+func _on_game_over_hud_finished() -> void:
+	Engine.time_scale = 1.0
+	get_tree().reload_current_scene()

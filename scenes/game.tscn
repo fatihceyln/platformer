@@ -4,121 +4,11 @@
 [ext_resource type="Script" uid="uid://cty816nvm365i" path="res://scripts/game_manager.gd" id="1_j5wjh"]
 [ext_resource type="Texture2D" uid="uid://qqsyx1e7v2fu" path="res://assets/sprites/world_tileset.png" id="2_e2o6t"]
 [ext_resource type="PackedScene" uid="uid://b41gwy6bpg7qv" path="res://scenes/platform.tscn" id="3_feb5d"]
-[ext_resource type="Material" uid="uid://d07lo2blr3ptm" path="res://materials/circle_transition_shader_material.tres" id="3_hve3p"]
 [ext_resource type="PackedScene" uid="uid://br2i1akcrs6oy" path="res://scenes/coin.tscn" id="4_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://c88udyeyn4dcf" path="res://scenes/killzone.tscn" id="5_7jktm"]
 [ext_resource type="PackedScene" uid="uid://bcwi265pjhitd" path="res://scenes/slime.tscn" id="6_ryrav"]
 [ext_resource type="FontFile" uid="uid://bskiya6hf2nuc" path="res://assets/fonts/PixelOperator8.ttf" id="7_eow3j"]
 [ext_resource type="FontFile" uid="uid://ctpbh2u36ff41" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="9_vef74"]
-
-[sub_resource type="Animation" id="Animation_hve3p"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Overlay/GameOverLabel:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Overlay/GameOverLabel:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Overlay/Dim:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Overlay/Dim:material:shader_parameter/progress")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_mfdv2"]
-resource_name = "game_over_reveal"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Overlay/GameOverLabel:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Overlay/GameOverLabel:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Overlay/Dim:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Overlay/Dim:material:shader_parameter/progress")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_iotsf"]
-_data = {
-&"RESET": SubResource("Animation_hve3p"),
-&"game_over_reveal": SubResource("Animation_mfdv2")
-}
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_feb5d"]
 texture = ExtResource("2_e2o6t")
@@ -343,38 +233,6 @@ theme_override_font_sizes/font_size = 8
 text = "You collected X coins."
 horizontal_alignment = 1
 autowrap_mode = 2
-
-[node name="Overlay" type="CanvasLayer" parent="GameManager" unique_id=1743987523]
-layer = 10
-
-[node name="Dim" type="ColorRect" parent="GameManager/Overlay" unique_id=1274765313]
-visible = false
-material = ExtResource("3_hve3p")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
-
-[node name="GameOverLabel" type="Label" parent="GameManager/Overlay" unique_id=517399201]
-visible = false
-modulate = Color(1, 1, 1, 0)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("9_vef74")
-theme_override_font_sizes/font_size = 24
-text = "Game Over"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="GameOverReveal" type="AnimationPlayer" parent="GameManager" unique_id=280983130]
-libraries/ = SubResource("AnimationLibrary_iotsf")
 
 [node name="TileMap" type="TileMap" parent="." unique_id=719780015]
 tile_set = SubResource("TileSet_fc0e3")
