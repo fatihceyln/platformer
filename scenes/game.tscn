@@ -394,53 +394,53 @@ limit_bottom = 90
 limit_smoothed = true
 position_smoothing_enabled = true
 
-[node name="coins" type="Node2D" parent="." unique_id=608606781]
+[node name="Coins" type="Node2D" parent="." unique_id=608606781]
 
-[node name="coin" parent="coins" unique_id=755680118 instance=ExtResource("4_fc0e3")]
+[node name="Coin" parent="Coins" unique_id=755680118 instance=ExtResource("4_fc0e3")]
 position = Vector2(152, 40)
 
-[node name="coin2" parent="coins" unique_id=1088766556 instance=ExtResource("4_fc0e3")]
+[node name="Coin2" parent="Coins" unique_id=1088766556 instance=ExtResource("4_fc0e3")]
 position = Vector2(296, 40)
 
-[node name="coin3" parent="coins" unique_id=1474031333 instance=ExtResource("4_fc0e3")]
+[node name="Coin3" parent="Coins" unique_id=1474031333 instance=ExtResource("4_fc0e3")]
 position = Vector2(184, -71)
 
-[node name="coin4" parent="coins" unique_id=405911889 instance=ExtResource("4_fc0e3")]
+[node name="Coin4" parent="Coins" unique_id=405911889 instance=ExtResource("4_fc0e3")]
 position = Vector2(584, 7)
 
-[node name="coin5" parent="coins" unique_id=2049044573 instance=ExtResource("4_fc0e3")]
+[node name="Coin5" parent="Coins" unique_id=2049044573 instance=ExtResource("4_fc0e3")]
 position = Vector2(841, -56)
 
-[node name="coin6" parent="coins" unique_id=1638042256 instance=ExtResource("4_fc0e3")]
+[node name="Coin6" parent="Coins" unique_id=1638042256 instance=ExtResource("4_fc0e3")]
 position = Vector2(857, -56)
 
-[node name="coin7" parent="coins" unique_id=757736970 instance=ExtResource("4_fc0e3")]
+[node name="Coin7" parent="Coins" unique_id=757736970 instance=ExtResource("4_fc0e3")]
 position = Vector2(873, -56)
 
-[node name="coin8" parent="coins" unique_id=717083101 instance=ExtResource("4_fc0e3")]
+[node name="Coin8" parent="Coins" unique_id=717083101 instance=ExtResource("4_fc0e3")]
 position = Vector2(680, -135)
 
-[node name="Killzone" parent="." unique_id=632691464 instance=ExtResource("5_7jktm")]
+[node name="KillZone" parent="." unique_id=632691464 instance=ExtResource("5_7jktm")]
 unique_name_in_owner = true
 position = Vector2(112, 104)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=2039865310]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone" unique_id=2039865310]
 position = Vector2(0, 14)
 shape = SubResource("WorldBoundaryShape2D_ryrav")
 
-[node name="platforms" type="Node" parent="." unique_id=44465495]
+[node name="Platforms" type="Node" parent="." unique_id=44465495]
 
-[node name="platform" parent="platforms" unique_id=29414217 instance=ExtResource("3_feb5d")]
+[node name="Platform" parent="Platforms" unique_id=29414217 instance=ExtResource("3_feb5d")]
 position = Vector2(112, -14)
 
-[node name="moving platform" parent="platforms" unique_id=1195936984 instance=ExtResource("3_feb5d")]
+[node name="MovingPlatform" parent="Platforms" unique_id=1195936984 instance=ExtResource("3_feb5d")]
 position = Vector2(451, 21)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/moving platform" unique_id=397582730]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/MovingPlatform" unique_id=397582730]
 libraries/ = SubResource("AnimationLibrary_7jktm")
 autoplay = &"move"
 
-[node name="slime" parent="." unique_id=1220035986 instance=ExtResource("6_ryrav")]
+[node name="Slime" parent="." unique_id=1220035986 instance=ExtResource("6_ryrav")]
 position = Vector2(604, 48)
 
 [node name="Labels" type="Node" parent="." unique_id=325565571]

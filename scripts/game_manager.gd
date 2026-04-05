@@ -6,7 +6,7 @@ var score: int = 0
 var _total_coins: int = 0
 @onready var score_label: Label = $ScoreLabel
 @onready var game_over_reveal: AnimationPlayer = $GameOverReveal
-
+var foo: AnimationPlayer = $GameOverReveal
 
 func _ready() -> void:
 	Events.player_died.connect(_on_player_died)
@@ -15,7 +15,7 @@ func _ready() -> void:
 func _calculate_total_coins() -> void:
 	var world: Node = get_parent()
 	if world == null: return
-	var coins: Node = world.get_node_or_null("coins")
+	var coins: Node = world.get_node_or_null("Coins")
 	if coins == null: return
 	_total_coins = coins.get_child_count()
 
